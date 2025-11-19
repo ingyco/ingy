@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>ingy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <style>
         /* CSS for the black background, green text, and console font for the entire page */
         body {
@@ -11,6 +12,10 @@
             font-family: 'Lucida Console', 'Consolas', 'Monaco', 'Courier New', monospace;
             /* Center the text/links on the page */
             text-align: center;
+            /* Use a flexible unit for font size */
+            font-size: 1.2em; /* Slightly larger text, but adjustable */
+            margin: 0; /* Remove default body margins */
+            padding: 20px; /* Add some overall padding */
         }
 
         /* Style for the image */
@@ -33,6 +38,8 @@
             font-weight: bold;
             /* Optional: Add spacing between the links */
             padding: 0 10px;
+            /* Optional: Make the link touch area slightly bigger for mobile */
+            line-height: 2;
         }
 
         /* Hover effect: changes link color on mouse-over for interactivity */
@@ -44,6 +51,44 @@
         .links-container {
             margin-top: 20px;
         }
+
+        /* 2. ADD A MEDIA QUERY TO STACK LINKS ON SMALLER SCREENS */
+        /* This applies when the screen width is 600px or less (typical for mobile) */
+        @media (max-width: 600px) {
+            /* Make the links appear on separate lines */
+            .links-container a, 
+            .links-container span {
+                display: block; /* Make links and separators take up full width */
+                margin: 5px 0; /* Add vertical spacing between stacked links */
+                padding: 5px 0; /* Add padding for easier tapping */
+            }
+            
+            /* Hide the separator lines when links are stacked */
+            .links-container span {
+                display: none;
+            }
+
+            /* Adjust the body padding for a more mobile-friendly look */
+            body {
+                padding: 10px;
+            }
+
+            /* Slightly reduce the font size for small screens */
+            body {
+                font-size: 1em;
+            }
+        }
+        
+        /* 3. OPTIONAL: A media query for larger screens if you want to limit max-width */
+        @media (min-width: 1200px) {
+            .links-container {
+                /* Center the content container and give it a maximum width */
+                max-width: 600px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
     </style>
 </head>
 <body>
